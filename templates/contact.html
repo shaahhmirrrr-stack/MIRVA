@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - My Clothing Brand</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            MY BRAND
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/shop">SHOP</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Contact Section -->
+
+    <section class="contact">
+
+        <h1>CONTACT US</h1>
+
+        <p>Have a question? Send us a message.</p>
+
+
+        <form>
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <input type="text" placeholder="Subject" required>
+
+            <textarea placeholder="Your Message" rows="6" required></textarea>
+
+            <button type="submit">SEND MESSAGE</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 My Clothing Brand. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>

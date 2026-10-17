@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MIRVA | Where Style Speaks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: #f5f2ec;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ANIMATED MIRVA BRAND */
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .logo {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 43px;
+            font-weight: 800;
+            letter-spacing: 7px;
+            line-height: 1;
+            color: #f5f2ec;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        .logo span {
+            color: #d4bd8a;
+        }
+
+        .slogan {
+            color: #d4bd8a;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-top: 8px;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                text-shadow: 0 0 3px rgba(212, 189, 138, 0.15);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 8px rgba(212, 189, 138, 0.45),
+                    0 0 20px rgba(212, 189, 138, 0.15);
+            }
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090909;
+            border-bottom: 1px solid #25231f;
+            gap: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 27px;
+        }
+
+        .nav-links a {
+            color: #d0cdc5;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4bd8a;
+        }
+
+        /* HERO BANNER */
+
+        .hero {
+            min-height: 680px;
+            padding: 90px 8%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(9, 9, 9, 0.94) 0%,
+                    rgba(9, 9, 9, 0.77) 40%,
+                    rgba(9, 9, 9, 0.18) 100%
+                ),
+                url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2200&q=90')
+                center 35% / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            color: #d4bd8a;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(64px, 9vw, 112px);
+            font-weight: 600;
+            line-height: 0.92;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4bd8a;
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 410px;
+            color: #d2cfc8;
+            font-size: 13px;
+            line-height: 2;
+            margin-bottom: 32px;
+        }
+
+        .gold-button {
+            display: inline-block;
+            background: #d4bd8a;
+            color: #11100d;
+            padding: 16px 27px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .gold-button:hover {
+            background: #f5ead0;
+            transform: translateY(-2px);
+        }
+
+        /* BRAND STRIP */
+
+        .brand-strip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+            padding: 23px 6%;
+            background: #11110f;
+            border-top: 1px solid #282620;
+            border-bottom: 1px solid #282620;
+        }
+
+        .brand-strip span {
+            color: #c8c2b5;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .brand-strip .symbol {
+            color: #d4bd8a;
+        }
+
+        /* FEATURED COLLECTION */
+
+        .collection {
+            padding: 90px 7%;
+        }
+
+        .section-label {
+            color: #d4bd8a;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(43px, 6vw, 68px);
+            font-weight: 500;
+            line-height: 1.1;
+        }
+
+        .collection-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .collection-intro {
+            max-width: 340px;
+            color: #a6a199;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            min-width: 0;
+            background: #11110f;
+            border: 1px solid #292720;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: #8c7957;
+            transform: translateY(-4px);
+        }
+
+        .image-wrap {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            background: #1b1a17;
+        }
+
+        .product-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.04);
+        }
+
+        .item-number {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            padding: 7px 9px;
+            background: rgba(9, 9, 9, 0.85);
+            color: #d4bd8a;
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+        .product-info {
+            padding: 21px 16px;
+        }
+
+        .product-category {
+            color: #d4bd8a;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .product-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            color: #a6a199;
+            font-size: 11px;
+            line-height: 1.8;
+            min-height: 40px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-top: 1px solid #292720;
+            padding-top: 15px;
+            margin-top: 17px;
+        }
+
+        .price {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .view-link {
+            color: #d4bd8a;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .view-link:hover {
+            color: #fff;
+        }
+
+        .center-button {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .outline-button {
+            display: inline-block;
+            padding: 15px 27px;
+            border: 1px solid #8c7957;
+            color: #d4bd8a;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .outline-button:hover {
+            background: #d4bd8a;
+            color: #090909;
+        }
+
+        /* EDITORIAL CAMPAIGN */
+
+        .campaign {
+            margin: 0 7% 90px;
+            min-height: 400px;
+            padding: 65px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(9, 9, 9, 0.93),
+                    rgba(9, 9, 9, 0.58)
+                ),
+                url('https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=1800&q=85')
+                center / cover no-repeat;
+            border: 1px solid #302c23;
+        }
+
+        .campaign-content {
+            max-width: 560px;
+        }
+
+        .campaign h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(46px, 6vw, 76px);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .campaign h2 span {
+            color: #d4bd8a;
+            font-style: italic;
+        }
+
+        .campaign p {
+            max-width: 430px;
+            color: #d2cfc8;
+            font-size: 12px;
+            line-height: 2;
+            margin-bottom: 28px;
+        }
+
+        /* BRAND PHILOSOPHY */
+
+        .philosophy {
+            padding: 85px 8%;
+            text-align: center;
+            background: #11110f;
+            border-top: 1px solid #292720;
+            border-bottom: 1px solid #292720;
+        }
+
+        .philosophy h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(42px, 6vw, 66px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .philosophy h2 span {
+            color: #d4bd8a;
+            font-style: italic;
+        }
+
+        .philosophy p {
+            max-width: 600px;
+            margin: auto;
+            color: #aaa69d;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 45px 7%;
+            background: #090909;
+            text-align: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 7px;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        .footer-slogan {
+            color: #d4bd8a;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 28px 0;
+        }
+
+        .footer-links a {
+            color: #c8c2b5;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a:hover {
+            color: #d4bd8a;
+        }
+
+        .copyright {
+            color: #77736b;
+            font-size: 10px;
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            .products {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .image-wrap {
+                height: 330px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+                padding: 22px 5%;
+            }
+
+            .brand {
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+            }
+
+            .hero {
+                min-height: 550px;
+                padding: 65px 7%;
+                background-position: 60% center;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .brand-strip {
+                gap: 14px;
+            }
+
+            .brand-strip span {
+                font-size: 8px;
+            }
+
+            .collection {
+                padding: 65px 5%;
+            }
+
+            .collection-heading {
+                display: block;
+            }
+
+            .collection-intro {
+                margin-top: 18px;
+            }
+
+            .products {
+                gap: 12px;
+            }
+
+            .image-wrap {
+                height: 235px;
+            }
+
+            .product-info {
+                padding: 15px 10px;
+            }
+
+            .product-info h3 {
+                font-size: 20px;
+            }
+
+            .product-description {
+                font-size: 10px;
+            }
+
+            .product-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .campaign {
+                margin: 0 5% 60px;
+                padding: 35px 23px;
+                min-height: 350px;
+            }
+
+            .philosophy {
+                padding: 60px 6%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .logo,
+            .footer-logo {
+                animation: none;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION AND BRAND -->
+    <header class="navbar">
+        <a href="/" class="brand">
+            <span class="logo">MIRVA<span>.</span></span>
+            <span class="slogan">WHERE STYLE SPEAKS.</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="/">HOME</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+            <a href="/shop#cart">CART</a>
+        </nav>
+    </header>
+
+    <!-- KOREAN-INSPIRED BAGGY FASHION BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tag">MODERN STREETWEAR · NEW EXPRESSION</p>
+
+            <h1>
+                OWN<br>
+                YOUR<br>
+                <span>LOOK.</span>
+            </h1>
+
+            <p class="hero-description">
+                Relaxed silhouettes. Oversized layers. Effortless confidence.
+                Discover contemporary fashion inspired by Seoul street style
+                and made for your own expression.
+            </p>
+
+            <a href="/shop" class="gold-button">
+                EXPLORE COLLECTION
+            </a>
+        </div>
+    </section>
+
+    <!-- BRAND STRIP -->
+    <div class="brand-strip">
+        <span>MODERN ESSENTIALS</span>
+        <span class="symbol">✦</span>
+        <span>TIMELESS STYLE</span>
+        <span class="symbol">✦</span>
+        <span>EVERYDAY CONFIDENCE</span>
+        <span class="symbol">✦</span>
+        <span>MIRVA QUALITY</span>
+    </div>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="collection">
+        <div class="collection-heading">
+            <div>
+                <p class="section-label">THE MIRVA EDIT</p>
+                <h2 class="section-heading">Featured Pieces</h2>
+            </div>
+
+            <p class="collection-intro">
+                Discover the pieces that define our collection.
+                Carefully considered essentials for a modern wardrobe
+                and effortless everyday style.
+            </p>
+        </div>
+
+        <div class="products">
+
+            <!-- T-SHIRT -->
+            <article class="product-card">
+                <a href="/product/tshirt">
+                    <div class="image-wrap">
+                        <img
+                            class="product-image"
+                            src="{{ url_for('static', filename='images/tshirt.png') }}"
+                            alt="MIRVA Classic T-Shirt">
+                        <span class="item-number">01 / 04</span>
+                    </div>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">EVERYDAY ESSENTIAL</p>
+                    <h3>Classic T-Shirt</h3>
+                    <p class="product-description">
+                        Minimal design with effortless versatility.
+                    </p>
+
+                    <div class="product-bottom">
+                        <span class="price">Rs. 2,499</span>
+                        <a class="view-link" href="/product/tshirt">
+                            VIEW PIECE ↗
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- HOODIE -->
+            <article class="product-card">
+                <a href="/product/hoodie">
+                    <div class="image-wrap">
+                        <img
+                            class="product-image"
+                            src="{{ url_for('static', filename='images/hoodie.png') }}"
+                            alt="MIRVA Premium Hoodie">
+                        <span class="item-number">02 / 04</span>
+                    </div>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">RELAXED COMFORT</p>
+                    <h3>Premium Hoodie</h3>
+                    <p class="product-description">
+                        Comfortable layering with a refined finish.
+                    </p>
+
+                    <div class="product-bottom">
+                        <span class="price">Rs. 4,999</span>
+                        <a class="view-link" href="/product/hoodie">
+                            VIEW PIECE ↗
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- JACKET -->
+            <article class="product-card">
+                <a href="/product/jacket">
+                    <div class="image-wrap">
+                        <img
+                            class="product-image"
+                            src="{{ url_for('static', filename='images/jacket.png') }}"
+                            alt="MIRVA Denim Jacket">
+                        <span class="item-number">03 / 04</span>
+                    </div>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">MODERN CLASSIC</p>
+                    <h3>Denim Jacket</h3>
+                    <p class="product-description">
+                        A versatile classic with a contemporary edge.
+                    </p>
+
+                    <div class="product-bottom">
+                        <span class="price">Rs. 6,999</span>
+                        <a class="view-link" href="/product/jacket">
+                            VIEW PIECE ↗
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- COAT -->
+            <article class="product-card">
+                <a href="/product/coat">
+                    <div class="image-wrap">
+                        <img
+                            class="product-image"
+                            src="{{ url_for('static', filename='images/coat.png') }}"
+                            alt="MIRVA Signature Coat">
+                        <span class="item-number">04 / 04</span>
+                    </div>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">SIGNATURE OUTERWEAR</p>
+                    <h3>Signature Coat</h3>
+                    <p class="product-description">
+                        A polished finishing layer for cooler days.
+                    </p>
+
+                    <div class="product-bottom">
+                        <span class="price">Rs. 9,999</span>
+                        <a class="view-link" href="/product/coat">
+                            VIEW PIECE ↗
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="center-button">
+            <a href="/shop" class="outline-button">
+                VIEW FULL COLLECTION
+            </a>
+        </div>
+    </section>
+
+    <!-- EDITORIAL CAMPAIGN -->
+    <section class="campaign">
+        <div class="campaign-content">
+            <p class="hero-tag">THE MIRVA EXPERIENCE</p>
+
+            <h2>
+                Style that<br>
+                <span>speaks for you.</span>
+            </h2>
+
+            <p>
+                Create your own expression with modern clothing,
+                understated details, and pieces designed to work
+                together across seasons.
+            </p>
+
+            <a href="/shop" class="gold-button">
+                DISCOVER MIRVA
+            </a>
+        </div>
+    </section>
+
+    <!-- BRAND PHILOSOPHY -->
+    <section class="philosophy">
+        <p class="section-label">OUR PHILOSOPHY</p>
+
+        <h2>
+            Confidence is<br>
+            <span>your own signature.</span>
+        </h2>
+
+        <p>
+            MIRVA is built around modern essentials, considered design,
+            and personal expression. We believe style should feel natural,
+            confidence should feel effortless, and every piece should
+            tell a story of its own.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-brand">
+            <div class="footer-logo">MIRVA.</div>
+            <p class="footer-slogan">WHERE STYLE SPEAKS.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="/">HOME</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 MIRVA. ALL RIGHTS RESERVED.
+        </p>
+    </footer>
+
+</body>
+</html>

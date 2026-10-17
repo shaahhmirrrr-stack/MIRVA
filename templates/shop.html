@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRVA — The Collection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --background: #f7f5f0;
+            --surface: #eeebe4;
+            --text: #25251f;
+            --muted: #77766e;
+            --accent: #927b5c;
+            --border: #dedbd2;
+            --white: #fffefa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        /* ANNOUNCEMENT */
+        .announcement {
+            padding: 10px 15px;
+            background: var(--text);
+            color: var(--white);
+            text-align: center;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 1.8px;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            min-height: 84px;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: "Manrope", sans-serif;
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .bag-link {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .7px;
+            transition: .2s;
+        }
+
+        .bag-link:hover {
+            border-color: var(--text);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 54px 7% 76px;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin-top: 23px;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(48px, 6.3vw, 83px);
+            line-height: 1.03;
+            letter-spacing: -4px;
+            font-weight: 500;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .hero-description {
+            max-width: 365px;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 22px;
+            margin-top: 29px;
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 15px 22px;
+            background: var(--text);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background .25s, transform .25s;
+        }
+
+        .primary-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .secondary-link {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .7px;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 5px;
+        }
+
+        .hero-photo {
+            height: 520px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .hero-photo img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform .7s;
+        }
+
+        .hero-photo:hover img {
+            transform: scale(1.025);
+        }
+
+        /* SMALL INFO BAR */
+        .info-bar {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px 7%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+        }
+
+        /* PRODUCT COLLECTION */
+        .collection {
+            padding: 86px 7% 100px;
+            scroll-margin-top: 25px;
+        }
+
+        .collection-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .collection-heading h2 {
+            margin-top: 12px;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            font-weight: 500;
+        }
+
+        .collection-note {
+            max-width: 235px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            min-width: 0;
+        }
+
+        .product-photo {
+            position: relative;
+            display: block;
+            aspect-ratio: .78;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .product-photo img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform .45s;
+        }
+
+        .product-card:hover .product-photo img {
+            transform: scale(1.035);
+        }
+
+        .product-label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 7px 9px;
+            background: rgba(255, 254, 250, .94);
+            color: var(--text);
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 16px 1px;
+        }
+
+        .product-category {
+            margin-bottom: 7px;
+            color: var(--muted);
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .product-price {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-link {
+            color: var(--accent);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            white-space: nowrap;
+        }
+
+        /* EDITORIAL BANNER */
+        .editorial {
+            margin: 0 7% 90px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--surface);
+        }
+
+        .editorial-photo {
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .editorial-photo img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s;
+        }
+
+        .editorial-photo:hover img {
+            transform: scale(1.025);
+        }
+
+        .editorial-copy {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .editorial-copy h2 {
+            margin-top: 18px;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(35px, 4vw, 52px);
+            font-weight: 500;
+            line-height: 1.12;
+            letter-spacing: -2px;
+        }
+
+        .editorial-copy p {
+            max-width: 350px;
+            margin: 18px 0 25px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* CLOSING */
+        .closing {
+            padding: 0 7% 90px;
+            text-align: center;
+        }
+
+        .closing h2 {
+            margin-top: 15px;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(34px, 5vw, 58px);
+            line-height: 1.15;
+            font-weight: 500;
+            letter-spacing: -2px;
+        }
+
+        .closing h2 span {
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 43px 7% 23px;
+            background: #22221e;
+            color: var(--white);
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            padding-bottom: 32px;
+        }
+
+        .footer-description {
+            max-width: 270px;
+            margin-top: 12px;
+            color: #c0bdb4;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: #e6e2d9;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a:hover {
+            color: #cbb28b;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,.15);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: #b5b1a8;
+            font-size: 9px;
+            letter-spacing: .7px;
+        }
+
+        @media (max-width: 950px) {
+            .hero-layout {
+                gap: 30px;
+            }
+
+            .hero-photo {
+                height: 440px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px 17px;
+            }
+
+            .editorial-copy {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .navbar {
+                padding: 20px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 24px;
+                letter-spacing: 3px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+                letter-spacing: .4px;
+            }
+
+            .bag-link {
+                padding: 10px;
+                font-size: 9px;
+            }
+
+            .hero {
+                padding: 40px 5% 55px;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .hero h1 {
+                font-size: clamp(52px, 13vw, 75px);
+                letter-spacing: -3px;
+            }
+
+            .hero-photo {
+                height: 390px;
+            }
+
+            .info-bar {
+                padding: 18px 5%;
+                justify-content: center;
+                font-size: 8px;
+            }
+
+            .collection {
+                padding: 65px 5% 70px;
+            }
+
+            .collection-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product-grid {
+                gap: 22px 12px;
+            }
+
+            .product-name {
+                font-size: 13px;
+            }
+
+            .product-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .editorial {
+                margin: 0 5% 70px;
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-photo {
+                min-height: 300px;
+            }
+
+            .editorial-copy {
+                padding: 30px 24px;
+            }
+
+            .closing {
+                padding: 0 5% 65px;
+            }
+
+            .footer {
+                padding: 35px 5% 22px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="announcement">
+        MIRVA COLLECTION &nbsp; · &nbsp; WHERE STYLE SPEAKS.
+    </div>
+
+    <nav class="navbar">
+        <a href="/" class="logo">MIRVA<span>.</span></a>
+
+        <div class="nav-links">
+            <a href="/">HOME</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+
+        <a href="/cart" class="bag-link">BAG ↗</a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-layout">
+            <div>
+                <p class="eyebrow">THE NEW COLLECTION</p>
+
+                <h1>
+                    Everyday
+                    <span>elevated.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Modern essentials, relaxed fits and understated
+                    details. Discover a collection designed to make
+                    personal style feel effortless.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#collection" class="primary-button">
+                        EXPLORE THE COLLECTION ↗
+                    </a>
+
+                    <a href="/about" class="secondary-link">
+                        OUR STORY
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-photo">
+                <img
+                    src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1400&q=85"
+                    alt="Contemporary men's fashion editorial"
+                >
+            </div>
+        </div>
+    </header>
+
+    <div class="info-bar">
+        <span>CONTEMPORARY DESIGN</span>
+        <span>EFFORTLESS EVERYDAY STYLE</span>
+        <span>THE MIRVA POINT OF VIEW</span>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="collection" id="collection">
+        <div class="collection-heading">
+            <div>
+                <p class="eyebrow">A CONSIDERED COLLECTION</p>
+                <h2>Shop your essentials.</h2>
+            </div>
+
+            <p class="collection-note">
+                Thoughtful staples and contemporary layers
+                for your everyday wardrobe.
+            </p>
+        </div>
+
+        <div class="product-grid">
+
+            <article class="product-card">
+                <a href="/product/tshirt" class="product-photo">
+                    <img
+                        src="{{ url_for('static', filename='images/tshirt.png') }}"
+                        alt="MIRVA Classic T-Shirt"
+                        loading="lazy"
+                    >
+                    <span class="product-label">Essential</span>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">Everyday wear</p>
+                    <h3 class="product-name">MIRVA Classic T-Shirt</h3>
+
+                    <div class="product-bottom">
+                        <span class="product-price">Rs. 2,499</span>
+                        <a href="/product/tshirt" class="product-link">VIEW PRODUCT ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <a href="/product/hoodie" class="product-photo">
+                    <img
+                        src="{{ url_for('static', filename='images/hoodie.png') }}"
+                        alt="MIRVA Premium Hoodie"
+                        loading="lazy"
+                    >
+                    <span class="product-label">Relaxed fit</span>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">Soft layers</p>
+                    <h3 class="product-name">Premium Hoodie</h3>
+
+                    <div class="product-bottom">
+                        <span class="product-price">Rs. 4,999</span>
+                        <a href="/product/hoodie" class="product-link">VIEW PRODUCT ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <a href="/product/jacket" class="product-photo">
+                    <img
+                        src="{{ url_for('static', filename='images/jacket.png') }}"
+                        alt="MIRVA Denim Jacket"
+                        loading="lazy"
+                    >
+                    <span class="product-label">Outerwear</span>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">Modern layers</p>
+                    <h3 class="product-name">Denim Jacket</h3>
+
+                    <div class="product-bottom">
+                        <span class="product-price">Rs. 6,999</span>
+                        <a href="/product/jacket" class="product-link">VIEW PRODUCT ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <a href="/product/coat" class="product-photo">
+                    <img
+                        src="{{ url_for('static', filename='images/coat.png') }}"
+                        alt="MIRVA Signature Coat"
+                        loading="lazy"
+                    >
+                    <span class="product-label">Signature</span>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">Statement layers</p>
+                    <h3 class="product-name">Signature Coat</h3>
+
+                    <div class="product-bottom">
+                        <span class="product-price">Rs. 9,999</span>
+                        <a href="/product/coat" class="product-link">VIEW PRODUCT ↗</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section class="editorial">
+        <div class="editorial-photo">
+            <img
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85"
+                alt="Modern fashion editorial"
+                loading="lazy"
+            >
+        </div>
+
+        <div class="editorial-copy">
+            <p class="eyebrow">THE MIRVA APPROACH</p>
+
+            <h2>Less noise.<br>More <span>character.</span></h2>
+
+            <p>
+                Good style does not need to be complicated.
+                Build your wardrobe around pieces that feel
+                natural, versatile and completely your own.
+            </p>
+
+            <a href="/about" class="primary-button">DISCOVER MIRVA ↗</a>
+        </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+        <p class="eyebrow">MIRVA — WHERE STYLE SPEAKS</p>
+        <h2>Find your fit.<br><span>Make it yours.</span></h2>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div>
+                <a href="/" class="logo">MIRVA<span>.</span></a>
+
+                <p class="footer-description">
+                    Contemporary clothing built around individuality,
+                    comfort and effortless personal style.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="/">HOME</a>
+                <a href="/shop">SHOP</a>
+                <a href="/about">ABOUT</a>
+                <a href="/contact">CONTACT</a>
+                <a href="/cart">CART</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 MIRVA. ALL RIGHTS RESERVED.</span>
+            <span>WHERE STYLE SPEAKS.</span>
+        </div>
+    </footer>
+
+</body>
+</html>

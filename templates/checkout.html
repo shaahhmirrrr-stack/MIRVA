@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRVA | Checkout</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f4ef;
+            color: #222;
+        }
+
+        header {
+            background: #171717;
+            color: white;
+            text-align: center;
+            padding: 24px;
+        }
+
+        header h1 {
+            letter-spacing: 7px;
+            margin: 0 0 8px;
+        }
+
+        header p {
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+
+        nav {
+            text-align: center;
+            padding: 16px;
+            background: white;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+        }
+
+        .panel {
+            background: white;
+            padding: 25px;
+            border: 1px solid #e6e0d7;
+        }
+
+        h2 { font-size: 20px; margin-top: 0; }
+
+        label {
+            display: block;
+            font-size: 13px;
+            margin: 15px 0 7px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6d0c7;
+            background: white;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: 1px solid #777;
+            border-color: #777;
+        }
+
+        textarea {
+            min-height: 85px;
+            resize: vertical;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee8df;
+        }
+
+        .product img {
+            width: 90px;
+            height: 105px;
+            object-fit: cover;
+            background: #f1eee8;
+        }
+
+        .product-info { flex: 1; }
+
+        .product-info h3 {
+            font-size: 14px;
+            margin: 0 0 8px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 18px;
+            font-size: 15px;
+        }
+
+        .grand-total {
+            border-top: 1px solid #ddd;
+            padding-top: 18px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 22px;
+            background: #171717;
+            color: white;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        button:hover { background: #444; }
+
+        #message {
+            margin-top: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .cod-note {
+            padding: 13px;
+            margin-top: 15px;
+            background: #f7f4ef;
+            color: #555;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 15px auto;
+                padding: 14px;
+            }
+
+            .panel { padding: 20px; }
+
+            nav a {
+                display: inline-block;
+                margin: 6px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MIRVA</h1>
+    <p>WHERE STYLE SPEAKS.</p>
+</header>
+
+<nav>
+    <a href="/">HOME</a>
+    <a href="/shop">SHOP</a>
+    <a href="/about">ABOUT</a>
+    <a href="/contact">CONTACT</a>
+    <a href="/cart">CART</a>
+</nav>
+
+<main class="container">
+
+    <section class="panel">
+        <h2>Delivery Information</h2>
+
+        <form id="checkoutForm">
+            <label for="customerName">Full Name</label>
+            <input
+                id="customerName"
+                name="customerName"
+                type="text"
+                autocomplete="name"
+                maxlength="100"
+                required
+            >
+
+            <label for="email">Email Address</label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                maxlength="150"
+                required
+            >
+
+            <label for="phone">Phone Number</label>
+            <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                maxlength="25"
+                placeholder="Enter your contact number"
+                required
+            >
+
+            <label for="address">Complete Delivery Address</label>
+            <textarea
+                id="address"
+                name="address"
+                autocomplete="street-address"
+                maxlength="500"
+                placeholder="House number, street, area and city"
+                required
+            ></textarea>
+
+            <label for="payment">Payment Method</label>
+            <select id="payment" name="payment" required>
+                <option value="Cash on Delivery">
+                    Cash on Delivery
+                </option>
+            </select>
+
+            <div class="cod-note">
+                <strong>Cash on Delivery</strong><br>
+                Pay when your MIRVA parcel arrives. This checkout
+                is currently a demo and does not send an order
+                to MIRVA.
+            </div>
+
+            <button type="submit">CONFIRM COD DEMO ORDER</button>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Your Order</h2>
+
+        <p style="font-size:13px;color:#777;">
+            Review your MIRVA collection.
+        </p>
+
+        <div id="orderItems"></div>
+
+        <div class="total-row">
+            <span>Subtotal</span>
+            <span id="subtotal">Rs. 0</span>
+        </div>
+
+        <div class="total-row">
+            <span>Delivery</span>
+            <span>Free</span>
+        </div>
+
+        <div class="total-row grand-total">
+            <span>Total</span>
+            <span id="total">Rs. 0</span>
+        </div>
+
+        <p style="font-size:12px;color:#888;line-height:1.6;">
+            Demo only: prices are displayed for preview.
+            No order is saved or submitted to the server.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 MIRVA — WHERE STYLE SPEAKS.
+</footer>
+
+<script>
+    const products = {
+        tshirt: {
+            name: "MIRVA Classic T-Shirt",
+            price: 2499,
+            image: "{{ url_for('static', filename='images/tshirt.png') }}"
+        },
+        hoodie: {
+            name: "MIRVA Premium Hoodie",
+            price: 4999,
+            image: "{{ url_for('static', filename='images/hoodie.png') }}"
+        },
+        jacket: {
+            name: "MIRVA Denim Jacket",
+            price: 6999,
+            image: "{{ url_for('static', filename='images/jacket.png') }}"
+        }
+    };
+
+    const orderItems = document.getElementById("orderItems");
+    const subtotalElement = document.getElementById("subtotal");
+    const totalElement = document.getElementById("total");
+    const message = document.getElementById("message");
+    const checkoutForm = document.getElementById("checkoutForm");
+
+    let cartHasItems = false;
+
+    function formatPrice(price) {
+        return "Rs. " + price.toLocaleString("en-PK");
+    }
+
+    function showOrder() {
+        orderItems.innerHTML = "";
+        let subtotal = 0;
+        let bag = {};
+
+        try {
+            bag = JSON.parse(localStorage.getItem("mirvaBag")) || {};
+        } catch (error) {
+            bag = {};
+        }
+
+        if (
+            !bag ||
+            typeof bag !== "object" ||
+            Array.isArray(bag)
+        ) {
+            bag = {};
+        }
+
+        for (const id in bag) {
+            if (!Object.prototype.hasOwnProperty.call(bag, id)) {
+                continue;
+            }
+
+            const product = products[id];
+            if (!product) continue;
+
+            const quantity = Number(bag[id]);
+
+            if (
+                !Number.isSafeInteger(quantity) ||
+                quantity <= 0 ||
+                quantity > 99
+            ) {
+                continue;
+            }
+
+            cartHasItems = true;
+            subtotal += product.price * quantity;
+
+            const item = document.createElement("div");
+            item.className = "product";
+
+            const img = document.createElement("img");
+            img.src = product.image;
+            img.alt = product.name;
+
+            const info = document.createElement("div");
+            info.className = "product-info";
+
+            const name = document.createElement("h3");
+            name.textContent = product.name;
+
+            const qty = document.createElement("p");
+            qty.textContent = "Quantity: " + quantity;
+
+            const price = document.createElement("p");
+            price.textContent = formatPrice(
+                product.price * quantity
+            );
+
+            info.appendChild(name);
+            info.appendChild(qty);
+            info.appendChild(price);
+            item.appendChild(img);
+            item.appendChild(info);
+            orderItems.appendChild(item);
+        }
+
+        if (!cartHasItems) {
+            orderItems.innerHTML =
+                '<p style="font-size:13px;color:#777;">' +
+                'Your bag is empty. Visit the shop to add products.' +
+                '</p>';
+        }
+
+        subtotalElement.textContent = formatPrice(subtotal);
+        totalElement.textContent = formatPrice(subtotal);
+    }
+
+    checkoutForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        message.style.color = "#a33";
+
+        if (!checkoutForm.checkValidity()) {
+            checkoutForm.reportValidity();
+            return;
+        }
+
+        if (!cartHasItems) {
+            message.textContent =
+                "Your bag is empty. Please add a product before checkout.";
+            return;
+        }
+
+        message.style.color = "#426b42";
+        message.textContent =
+            "Demo only: your Cash on Delivery details passed " +
+            "browser validation, but no order was sent or saved. " +
+            "Please do not treat this as a confirmed purchase.";
+    });
+
+    showOrder();
+</script>
+
+</body>
+</html>
